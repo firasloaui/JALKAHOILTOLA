@@ -227,6 +227,7 @@
     <Compile Include="Models\ProductGroup.cs">
       <DependentUpon>Jalkahoitola.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductGroupsController.cs" />
     <Compile Include="Models\Recieved_ammount.cs">
       <DependentUpon>Jalkahoitola.tt</DependentUpon>
     </Compile>
@@ -313,6 +314,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ProductGroups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

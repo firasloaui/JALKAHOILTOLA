@@ -227,7 +227,7 @@
     <Compile Include="Models\ProductGroup.cs">
       <DependentUpon>Jalkahoitola.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductGroupsController.cs" />
+    <Compile Include="Controllers\ProductGroupsController.cs" />
     <Compile Include="Models\Recieved_ammount.cs">
       <DependentUpon>Jalkahoitola.tt</DependentUpon>
     </Compile>

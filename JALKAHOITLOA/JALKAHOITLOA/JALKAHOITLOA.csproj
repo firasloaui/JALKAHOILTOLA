@@ -192,6 +192,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDataControllers\EditDataController.cs" />
+    <Compile Include="AddDataControllers\EditProductGroupsController.cs" />
+    <Compile Include="AddDataControllers\EditProductsController.cs" />
+    <Compile Include="AddDataControllers\EditRecievedAmmountController.cs" />
+    <Compile Include="AddDataControllers\EditStocksController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -315,6 +320,27 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\ProductGroups\Index.cshtml" />
+    <Content Include="Views\EditProductGroups\Create.cshtml" />
+    <Content Include="Views\EditProductGroups\Delete.cshtml" />
+    <Content Include="Views\EditProductGroups\Details.cshtml" />
+    <Content Include="Views\EditProductGroups\Edit.cshtml" />
+    <Content Include="Views\EditProductGroups\Index.cshtml" />
+    <Content Include="Views\EditProducts\Create.cshtml" />
+    <Content Include="Views\EditProducts\Delete.cshtml" />
+    <Content Include="Views\EditProducts\Details.cshtml" />
+    <Content Include="Views\EditProducts\Edit.cshtml" />
+    <Content Include="Views\EditProducts\Index.cshtml" />
+    <Content Include="Views\EditRecievedAmmount\Create.cshtml" />
+    <Content Include="Views\EditRecievedAmmount\Delete.cshtml" />
+    <Content Include="Views\EditRecievedAmmount\Details.cshtml" />
+    <Content Include="Views\EditRecievedAmmount\Edit.cshtml" />
+    <Content Include="Views\EditRecievedAmmount\Index.cshtml" />
+    <Content Include="Views\EditStocks\Create.cshtml" />
+    <Content Include="Views\EditStocks\Delete.cshtml" />
+    <Content Include="Views\EditStocks\Details.cshtml" />
+    <Content Include="Views\EditStocks\Edit.cshtml" />
+    <Content Include="Views\EditStocks\Index.cshtml" />
+    <Content Include="Views\EditData\EditDataIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

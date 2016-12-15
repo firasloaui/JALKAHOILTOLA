@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<JALKAHOITLOA.Models.ProductGroup>
 
 @{
-    ViewBag.Title = "ProductGroups";
+    ViewBag.Title = "Index";
 }
 
-<h2>ProductGroups</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -26,7 +26,7 @@
             @Html.DisplayFor(modelItem => item.GroupId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            <p><a href="/products" class="btn btn-primary btn-lg" @Html.ActionLink(item.Name, item.Name, new { /* id=item.PrimaryKey */ })></a></p>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

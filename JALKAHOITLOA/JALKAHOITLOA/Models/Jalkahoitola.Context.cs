@@ -29,5 +29,6 @@ namespace JALKAHOITLOA.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Recieved_ammount> Recieved_ammounts { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<Group1> Group1 { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace JALKAHOITLOA.Models
+namespace JALKAHOITLOA.Controllers
 {
     public class ProductGroupsController : Controller
     {

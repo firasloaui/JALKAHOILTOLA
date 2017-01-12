@@ -1,39 +1,61 @@
 ﻿@model IEnumerable<JALKAHOITLOA.Models.ProductGroup>
 
-@{
-    ViewBag.Title = "Index";
+<!DOCTYPE html>
+
+<head>
+    <link href="~/css/Product.css" rel="stylesheet" />
+</head>
+
+@section scripts {
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".näytäTuotteetNappi").click(function () {
+                /*var groupId = $(this).data("groupid");
+                alert(groupId);
+
+                  $("#products_" + groupId).css("display", "block");
+                var url = "/products/GetProducts/" + groupId;
+                $.ajax(url).done(function (data) {
+                  alert("palvelin vastasi");
+                    alert(data.length);
+
+                     var productData = "";
+                     for (var i = 0; i < data.length; i++) {
+                        // alert(data[i].groupId);
+                         productData += (i + 1) + ": " + data[i].groupId + " " +
+                          data[i].nmae +" "+data[i].description+"\r\n";
+                     }
+                    //$("#productText_" + groupId).html("<pre>" + productData + "</pre>");
+                });*/
+            });
+        });
+    </script>
 }
+<body>
+    <h1>Product Groups</h1>
+    <div class="div1">
+        <table id=t1>
+            <tr class="r1">
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
 
-<h2>Index</h2>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/products/GetProducts/" + @Html.DisplayFor(modelItem => item.GroupId)>
+                            <span data-groupid="@Html.DisplayFor(modelItem => item.GroupId)" class="btn btn-primary btn-lg">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupId)
-        </td>
-        <td>
-            <p><a href="/products" class="btn btn-primary btn-lg" @Html.ActionLink(item.Name, item.Name, new { /* id=item.PrimaryKey */ })></a></p>
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
-</table>
+        </table>
+    </div>
+</body>

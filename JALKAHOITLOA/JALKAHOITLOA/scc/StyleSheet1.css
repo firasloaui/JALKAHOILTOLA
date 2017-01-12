@@ -1,0 +1,32 @@
+﻿body {
+    background-color:steelblue
+     }  
+.jumbotron{
+           background-color:powderblue;
+           border: 3px solid #000000;
+          }
+.jumbotron:hover{
+                background-color:dimgray;
+                }
+.ex1{
+     background-color:powderblue;
+     width:400px;  
+     border: 3px solid #000000;    
+     padding-left:30px;
+     padding-right:30px;       
+     }
+.ex1:hover{
+           background-color:dimgray;
+          }       
+
+.ex2 {
+      background-color:powderblue;
+      width:400px;
+      border: 3px solid #000000;
+      padding-left:10px;
+      padding-right:10px;
+      float:right;
+      }
+.ex2:hover{
+           background-color:dimgray;
+          }

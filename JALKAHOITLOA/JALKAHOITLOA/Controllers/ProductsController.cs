@@ -18,13 +18,12 @@ namespace JALKAHOITLOA.Controllers
 
             return View(model);
         }
-        public ActionResult GetProducts(string id)
+        public ActionResult GetProducts(int id)
         {
-            int idi;
-            idi = 2;
+           
             JalkahoitolaEntities entities = new JalkahoitolaEntities();
             List<Product> products = (from o in entities.Products
-                                      where o.GroupId == idi
+                                      where o.GroupId == id
                                       select o).ToList();
 
             return View(products);

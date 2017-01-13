@@ -47,7 +47,7 @@
             {
                 <tr>
                     <td>
-                        <a href="/products/GetProducts/" + @Html.DisplayFor(modelItem => item.GroupId)>
+                        <a href="/products/GetProducts/@item.GroupId">
                             <span data-groupid="@Html.DisplayFor(modelItem => item.GroupId)" class="btn btn-primary btn-lg">
                                 @Html.DisplayFor(modelItem => item.Name)
                             </span>

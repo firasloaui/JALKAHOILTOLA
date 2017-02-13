@@ -26,6 +26,9 @@ namespace JALKAHOITLOA.Models
         public string Quantity { get; set; }
         public string UnitOfMeasure { get; set; }
         public int GroupId { get; set; }
+        public Nullable<System.DateTime> Entery_Date { get; set; }
+        public Nullable<System.DateTime> Expire { get; set; }
+        public string Person_Name { get; set; }
     
         public virtual ProductGroup ProductGroup { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

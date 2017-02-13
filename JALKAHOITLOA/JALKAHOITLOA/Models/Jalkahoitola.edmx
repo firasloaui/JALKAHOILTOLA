@@ -5,20 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="JalkahoitolaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Jalkahoitola.dbo.Group1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Group1">
-          <Key>
-            <PropertyRef Name="ProductId" />
-            <PropertyRef Name="GroupId" />
-          </Key>
-          <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="char" MaxLength="100" />
-          <Property Name="Description" Type="nchar" MaxLength="500" />
-          <Property Name="Quantity" Type="nchar" MaxLength="100" />
-          <Property Name="UnitOfMeasure" Type="char" MaxLength="20" />
-          <Property Name="GroupId" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="ProductGroups">
           <Key>
             <PropertyRef Name="GroupId" />
@@ -30,12 +16,15 @@ warning 6002: The table/view 'Jalkahoitola.dbo.Group1' does not have a primary k
           <Key>
             <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Nmae" Type="char" MaxLength="100" />
           <Property Name="Description" Type="nchar" MaxLength="500" />
           <Property Name="Quantity" Type="nchar" MaxLength="100" />
           <Property Name="UnitOfMeasure" Type="char" MaxLength="20" />
           <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="Entery Date" Type="date" />
+          <Property Name="Expire" Type="date" />
+          <Property Name="Person Name" Type="char" MaxLength="50" />
         </EntityType>
         <EntityType Name="Recieved ammount">
           <Key>
@@ -99,16 +88,6 @@ warning 6002: The table/view 'Jalkahoitola.dbo.Group1' does not have a primary k
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Recieved ammount" EntityType="Self.Recieved ammount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Group1" EntityType="Self.Group1" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Group1].[ProductId] AS [ProductId], 
-    [Group1].[Name] AS [Name], 
-    [Group1].[Description] AS [Description], 
-    [Group1].[Quantity] AS [Quantity], 
-    [Group1].[UnitOfMeasure] AS [UnitOfMeasure], 
-    [Group1].[GroupId] AS [GroupId]
-    FROM [dbo].[Group1] AS [Group1]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Products_ProductGroups1" Association="Self.FK_Products_ProductGroups1">
             <End Role="ProductGroups" EntitySet="ProductGroups" />
             <End Role="Products" EntitySet="Products" />
@@ -146,6 +125,9 @@ warning 6002: The table/view 'Jalkahoitola.dbo.Group1' does not have a primary k
           <Property Name="GroupId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ProductGroup" Relationship="Self.FK_Products_ProductGroups1" FromRole="Products" ToRole="ProductGroups" />
           <NavigationProperty Name="Recieved_ammount" Relationship="Self.FK_Recieved_ammount_Products" FromRole="Products" ToRole="Recieved_ammount" />
+          <Property Name="Entery_Date" Type="DateTime" Precision="0" />
+          <Property Name="Expire" Type="DateTime" Precision="0" />
+          <Property Name="Person_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="Recieved_ammount">
           <Key>
@@ -224,20 +206,7 @@ warning 6002: The table/view 'Jalkahoitola.dbo.Group1' does not have a primary k
             <End Role="Recieved_ammount" EntitySet="Recieved_ammounts" />
             <End Role="Stock" EntitySet="Stocks" />
           </AssociationSet>
-          <EntitySet Name="Group1" EntityType="JalkahoitolaModel.Group1" />
         </EntityContainer>
-        <EntityType Name="Group1">
-          <Key>
-            <PropertyRef Name="ProductId" />
-            <PropertyRef Name="GroupId" />
-          </Key>
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="Quantity" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="UnitOfMeasure" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="GroupId" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -255,6 +224,9 @@ warning 6002: The table/view 'Jalkahoitola.dbo.Group1' does not have a primary k
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="JalkahoitolaModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Person_Name" ColumnName="Person Name" />
+                <ScalarProperty Name="Expire" ColumnName="Expire" />
+                <ScalarProperty Name="Entery_Date" ColumnName="Entery Date" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Nmae" ColumnName="Nmae" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -284,18 +256,6 @@ warning 6002: The table/view 'Jalkahoitola.dbo.Group1' does not have a primary k
                 <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
                 <ScalarProperty Name="SaapumiseränId" ColumnName="SaapumiseränId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Group1">
-            <EntityTypeMapping TypeName="JalkahoitolaModel.Group1">
-              <MappingFragment StoreEntitySet="Group1">
-                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
-                <ScalarProperty Name="UnitOfMeasure" ColumnName="UnitOfMeasure" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

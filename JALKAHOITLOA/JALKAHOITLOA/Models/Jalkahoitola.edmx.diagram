@@ -12,7 +12,6 @@
         <AssociationConnector Association="JalkahoitolaModel.FK_Products_ProductGroups1" ManuallyRouted="false" />
         <AssociationConnector Association="JalkahoitolaModel.FK_Recieved_ammount_Products" ManuallyRouted="false" />
         <AssociationConnector Association="JalkahoitolaModel.FK_Stock_Recieved_ammount" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="JalkahoitolaModel.Group1" Width="1.5" PointX="5.75" PointY="4.5" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

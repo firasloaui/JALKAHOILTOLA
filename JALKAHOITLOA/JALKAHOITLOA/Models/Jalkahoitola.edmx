@@ -16,7 +16,7 @@
           <Key>
             <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nmae" Type="char" MaxLength="100" />
           <Property Name="Description" Type="nchar" MaxLength="500" />
           <Property Name="Quantity" Type="nchar" MaxLength="100" />
@@ -24,7 +24,7 @@
           <Property Name="GroupId" Type="int" Nullable="false" />
           <Property Name="Entery Date" Type="date" />
           <Property Name="Expire" Type="date" />
-          <Property Name="Person Name" Type="char" MaxLength="50" />
+          <Property Name="Person Name" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Recieved ammount">
           <Key>
@@ -127,7 +127,7 @@
           <NavigationProperty Name="Recieved_ammount" Relationship="Self.FK_Recieved_ammount_Products" FromRole="Products" ToRole="Recieved_ammount" />
           <Property Name="Entery_Date" Type="DateTime" Precision="0" />
           <Property Name="Expire" Type="DateTime" Precision="0" />
-          <Property Name="Person_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Person_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Recieved_ammount">
           <Key>
